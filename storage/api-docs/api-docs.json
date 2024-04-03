@@ -1,0 +1,90 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Data API",
+        "description": "API Docs Swagger",
+        "contact": {
+            "email": "yudiprayogaraharja@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/ping": {
+            "get": {
+                "summary": "hit ping endpoint",
+                "description": "This endpoint returns ping.",
+                "operationId": "a44d898a3893894df9c3b303b1e33f6a",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "data": {
+                                            "type": "string",
+                                            "example": "pong"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "0"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "internal server error"
+                                        },
+                                        "data": {
+                                            "example": null
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "DataItem": {
+                "properties": {
+                    "status": {
+                        "description": "status",
+                        "type": "integer"
+                    },
+                    "message": {
+                        "description": "return message (optional)",
+                        "type": "string"
+                    },
+                    "data": {
+                        "description": "return data",
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
